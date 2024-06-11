@@ -5,10 +5,8 @@ import datetime
 
 class User_parameters:
     #constuctor
-    def __init__(self, username, gender, age, height, weight, date):
+    def __init__(self, age, height, weight, date):
 
-        self.username = username
-        self.gender = gender
         self.age = age
         self.height = height
         self.weight = weight

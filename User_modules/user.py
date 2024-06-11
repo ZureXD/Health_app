@@ -1,6 +1,56 @@
-import csv
 import hashlib
-import os
+
+class User:
+    def __init__(self, username, email, gender, password=None, hash_password=None):
+        self.username = username
+        self.email = email
+        self.gender = gender
+        self.__password = ""
+        #checks which password type is given
+        if password is not None:
+            self.__password = self.__hash_password(password)    # Hashing the password
+        elif hash_password is not None:
+            self.__password = hash_password
+        else:
+            print("Invalid argument")
+
+    #setters
+    def set_username(self):
+        self.username = input("Enter username: ")
+
+    def set_email(self):
+        self.email = input("Enter email address: ")
+
+    def set_password(self):
+        self.__password = input("Enter password: ")
+
+    #getters
+    def get_username(self):
+        return self.username
+
+    def get_email(self):
+        return self.email
+    
+    def get_password(self):
+        return self.__password
+    
+    def get_gender(self):
+        return self.gender
+
+    def __hash_password(self, password):
+        return hashlib.sha256(password.encode()).hexdigest()
+
+    def check_password(self, password, hashed_password):
+        if hashed_password == self.__hash_password(password):
+            return True
+        return False
+
+
+
+
+
+
+'''import hashlib
 
 
 class User:
@@ -125,4 +175,4 @@ class User:
             user.save_to_csv("csvFiles/users.csv")
             print("User added successfully")
         else:
-            print("User already exists, please enter different username/email")
+            print("User already exists, please enter different username/email")'''

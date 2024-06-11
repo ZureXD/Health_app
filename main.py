@@ -1,9 +1,4 @@
-from authorization import authentication
+from User_modules.authorization import authentication
 
-def print_user_data():
-    print("asd")
-
-
-authentication()
-
-print_user_data()
+current_user = authentication()
+print(current_user)
