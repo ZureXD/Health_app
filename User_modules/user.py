@@ -1,11 +1,15 @@
 import hashlib
+import uuid
 
 class User:
-    def __init__(self, username, email, gender, password=None, hash_password=None):
+    def __init__(self, user_id, username, email, gender, password=None, hash_password=None):
+
+        self.user_id = user_id
         self.username = username
         self.email = email
         self.gender = gender
         self.__password = ""
+        
         #checks which password type is given
         if password is not None:
             self.__password = self.__hash_password(password)    # Hashing the password
@@ -15,16 +19,22 @@ class User:
             print("Invalid argument")
 
     #setters
-    def set_username(self):
-        self.username = input("Enter username: ")
+    def set_user_id(self):
+        self.user_id = uuid.uuid4()
 
-    def set_email(self):
-        self.email = input("Enter email address: ")
+    def set_username(self, new_username: str):
+        self.username = new_username
 
-    def set_password(self):
-        self.__password = input("Enter password: ")
+    def set_email(self, new_email: str):
+        self.email = new_email
+
+    def set_password(self, __new_password):
+        self.__password = __new_password
 
     #getters
+    def get_user_id(self):
+        return self.user_id
+    
     def get_username(self):
         return self.username
 
@@ -37,6 +47,7 @@ class User:
     def get_gender(self):
         return self.gender
 
+    #password manipulation
     def __hash_password(self, password):
         return hashlib.sha256(password.encode()).hexdigest()
 
@@ -44,10 +55,6 @@ class User:
         if hashed_password == self.__hash_password(password):
             return True
         return False
-
-
-
-
 
 
 '''import hashlib

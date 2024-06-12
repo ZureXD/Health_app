@@ -24,9 +24,9 @@ def authentication():
                 break
             else:
                 continue
-        elif choice == '3':
+        elif choice == '0':
             print("Exiting...")
-            break
+            exit()
         else:
             print("Invalid choice. Please try again.")
 

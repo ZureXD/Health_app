@@ -5,7 +5,7 @@ from User_modules.user import User
 def save_to_csv(user, csvpath):
     with open(csvpath, mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([user.username, user.email, user.gender, user.get_password()])
+        writer.writerow([user.user_id ,user.username, user.email, user.gender, user.get_password()])
 
 def load_from_csv(csvpath):
     users = []
@@ -13,5 +13,5 @@ def load_from_csv(csvpath):
         with open(csvpath, mode='r') as file:
             reader = csv.reader(file)
             for row in reader:
-                users.append(User(username=row[0], email=row[1], gender=row[2], hash_password=row[3]))
+                users.append(User(user_id=row[0],username=row[1], email=row[2], gender=row[3], hash_password=row[4]))
     return users

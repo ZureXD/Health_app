@@ -1,25 +1,25 @@
 from User_modules.csv_operations import load_from_csv
 
 def login_inputs():
-    username_email = input("Enter username/email: ")
+    username_email = input("Enter email: ")
     password = input("Enter password: ")
     return username_email, password
 
 def login_user():
     login_status = False
-    login_username = ""
-    username_email, password = login_inputs()
+    user_id = ""
+    email, password = login_inputs()
     users = load_from_csv("csvFiles/users.csv")
     for user in users:
-        if user.get_email() == username_email or user.get_username() == username_email:
+        if user.get_email() == email:
             if user.check_password(password, user.get_password()):
                 print("Login successful")
                 login_status = True
-                login_username = user.get_username()
-                return login_status,login_username
+                user_id = user.get_user_id()
+                return login_status,user_id
             else:
                 print("Incorrect password")
                 login_status = False
-                return login_status,login_username
+                return login_status,user_id
     print("User not found")
-    return login_status,login_username
+    return login_status,user_id
