@@ -1,7 +1,7 @@
 from User_modules.sign_up import sign_up
 from User_modules.login import login_user
 
-
+#Colsole  Questions
 def operation_options():
     printLines()
     print("1. Sign Up\n2. Login\n0. Exit\n")
@@ -14,6 +14,7 @@ def printLines():
 
 def authentication():
     while True:
+        #user choice for operations
         choice = operation_options()
     
         if choice == '1':

@@ -1,7 +1,9 @@
+#calculating BMI
 def BMI(weight,height,age):
     BMI = weight/((height/100)*(height/100))
     return BMI
 
+#Bmi Range for children
 def Child_BMI_zone(BMI):
     if BMI <= 18.4:
         print("You are Underweight")
@@ -11,7 +13,7 @@ def Child_BMI_zone(BMI):
         print("you are Overweight")
     elif BMI >39.9:
         print("You are Obese")
-
+#Bmi range for Adults
 def Adult_BMI_zone(BMI):
     if BMI <= 16:
         print("You are Severely Underweight")
@@ -28,7 +30,7 @@ def Adult_BMI_zone(BMI):
     elif BMI >39.9:
         print("You are Morbidly Obese")
 
-
+#checking BMI range
 def BMI_calculation():
     while True:
         try:

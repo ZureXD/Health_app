@@ -13,9 +13,9 @@ with open(filename, mode='r') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         # Append the ID, weight, and date
-        ids.append(row[0])  # Assuming ID is in the first column
-        weights.append(float(row[-2]))  # Assuming weight is the second to last column
-        dates.append(row[-1])  # Assuming date is the last column
+        ids.append(row[0])  
+        weights.append(float(row[-2]))  
+        dates.append(row[-1])  
 
 # Convert string dates to datetime objects for better plotting
 dates = [datetime.strptime(date, '%Y-%m-%d') for date in dates]
